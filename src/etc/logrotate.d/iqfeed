@@ -1,0 +1,9 @@
+/var/log/iqfeed.log {
+    weekly
+    missingok
+    rotate 4
+    compress
+    delaycompress
+    notifempty
+    create 640 iqfeed iqfeed
+}

@@ -1,0 +1,11 @@
+Package: iqfeed
+Version: @RELEASE@
+Section: net
+Priority: optional
+Architecture: amd64
+Depends: adduser, wine, lib32nss-mdns, logrotate
+Maintainer: You
+Description: The DTN IQFeed market data feed connector
+ This supplies scripts and files to make iqconnect.exe run nicely on
+ a Debian system (with its own user, init.d start/stop scripts, and log 
+ rotation etc).

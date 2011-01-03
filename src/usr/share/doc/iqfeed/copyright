@@ -1,0 +1,10 @@
+These start/stops/install scripts for running IQFeed on Debian GNU/Linux 
+as a daemon using Wine are placed in the public domain by Thomas Munro 
+<munro@ip9.org>.
+
+The IQFeed software must be obtained separately by the end user from DTN's
+website and it is s not covered by this copyright message -- see 
+www.iqfeed.net for more.
+
+These Debian scripts and their author have no affiliation with www.iqfeed.net.
+They come with absolutely no guarantee of any kind.

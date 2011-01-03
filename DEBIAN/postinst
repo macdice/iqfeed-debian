@@ -1,0 +1,12 @@
+#!/bin/bash
+
+set -e
+
+case "$1" in
+    configure)
+        adduser --system iqfeed
+        chown -R iqfeed:nogroup /usr/lib/iqfeed
+        ;;
+esac
+
+update-rc.d iqfeed defaults

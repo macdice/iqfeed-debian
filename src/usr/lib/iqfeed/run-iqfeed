@@ -1,0 +1,19 @@
+#!/bin/bash
+
+. /etc/iqfeed.conf
+
+if [ "IQFEED_VERSION" == "" ] ; then echo Need IQFEED_VERSION ; exit 1 ; fi
+if [ "IQFEED_PRODUCT" == "" ] ; then echo Need IQFEED_PRODUCT ; exit 1 ; fi
+if [ "IQFEED_LOGIN" == "" ] ; then echo Need IQFEED_LOGIN ; exit 1 ; fi
+if [ "IQFEED_PASSWORD" == "" ] ; then echo Need IQFEED_PASSWORD ; exit 1 ; fi
+if [ "IQFEED_LOG" == "" ] ; then echo Need IQFEED_LOG ; exit 1 ; fi
+if [ "IQFEED_BOTTLE" == "" ] ; then echo Need IQFEED_BOTTLE ; exit 1 ; fi
+
+export WINEPREFIX=$IQFEED_BOTTLE
+exec /usr/bin/xvfb-run -a /usr/bin/wine \
+    'c:\\Program Files\\DTN\\IQFeed\\iqconnect.exe' \
+    -version "$IQFEED_VERSION" \
+    -product "$IQFEED_PRODUCT" \
+    -login="$IQFEED_LOGIN" \
+    -password="$IQFEED_PASSWORD" \
+    >> "$IQFEED_LOG"
