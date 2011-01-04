@@ -4,9 +4,10 @@ INSTALLER="iqfeed_client_$(shell echo $(RELEASE) | sed 's/\./_/g').exe"
 DEB=iqfeed-$(RELEASE)_amd64.deb
 
 menu:
-	@echo "Because of required manual intervention, there are three steps:"
+	@echo "Because of required manual intervention, there are four steps:"
 	@echo "  make fetch -- fetch $(INSTALLER) from www.iqfeed.net"
 	@echo "  make install -- install into a subdirectory (requires GUI)"
+	@echo "  make launch -- configure login/password (requires GUI)"
 	@echo "  make package -- build a Debian package"
 
 fetch:
@@ -15,6 +16,10 @@ fetch:
 install:
 	mkdir -p $(TARGET)/usr/lib/iqfeed/bottle
 	WINEPREFIX=$(shell pwd)/$(TARGET)/usr/lib/iqfeed/bottle wine $(INSTALLER)
+
+launch:
+	@echo "Set up your username, password and autoconnect, then connect and test"
+	WINEPREFIX=$(shell pwd)/$(TARGET)/usr/lib/iqfeed/bottle wine 'c:\\Program Files\\DTN\\IQFeed\\iqconnect.exe' -product IQFEED_DEMO -version 1.0.0.0
 
 package: build
 	fakeroot dpkg-deb --build $(TARGET) $(DEB)

@@ -15,13 +15,15 @@ scripts.
 
 Packages needed: wine, lib32nss-mdns, fakeroot, dpkg, wget, xvfb, make
 
-Steps:
-1. make fetch       # get the installer
-2. make install     # run installer GUI in local dir ready for packaging
-3. make package     # build the .deb
-4. sudo dpkg -i iqfeed-4.7.2.0_amd64.deb # install!
-5. sudo vi /etc/iqfeed.conf
-6. sudo /etc/init.d/iqfeed start
+Because manual GUI interaction is required, there are several steps:
+
+1. make fetch                            # get the installer from DTN
+2. make install                          # run installer (GUI)
+3. make launch                           # optional: test and configure (GUI)
+4. make package                          # build the .deb
+5. sudo dpkg -i iqfeed-4.7.2.0_amd64.deb # install!
+6. sudo vi /etc/iqfeed.conf              # optional: set product and version
+7. sudo /etc/init.d/iqfeed start
 
 I hereby place these files in the public domain.  They are supplied without 
 any kind of waranty.  Maybe someone who knows more about packaging will be
@@ -29,5 +31,4 @@ able to fork and improve them or show me how it really should be done...
 (I don't know much about packaging and haven't used the dh_XXX scripts, 
 and there are some remaining lintian errors...).
 
-Thomas Munro <munro@ip9.org>
-on New Year's day, 2011-01-01
+Thomas Munro <munro@ip9.org> on New Year's day, 2011-01-01
