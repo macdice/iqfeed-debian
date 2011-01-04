@@ -2,17 +2,30 @@ Here are some packaging scripts for running the DTN IQFeed iqconnect.exe
 software on a Debian GNU/Linux amd64 system (and probably also relatives 
 like Ubuntu).  I hope someone else finds them helpful.
 
+I assume that you know what DTN IQFeed is all about and that you already
+have a subscription and you know what to do with it.  You'll need to download
+the IQFeed software from DTN yourself (with 'make fetch', see below).
+I have no affiliation with DTN (other than being a happy customer).
+
+You don't need anything special to use iqconnect.exe on an x86 GNU/Linux 
+(or MacOSX, BSD etc) system, it works out of the box with Wine.  But I 
+wanted to run it as a headless daemon that comes up whenever my PC comes 
+up, so I decided to try packaging it and giving it standard start/stop 
+scripts.
+
+Packages needed: wine, lib32nss-mdns, fakeroot, dpkg, wget, xvfb
+
+Steps:
+1. make fetch       # get the installer
+2. make install     # run installer GUI in local dir ready for packaging
+3. make package     # build the .deb
+4. sudo dpkg -i iqfeed-4.7.2.0_amd64.deb # install!
+
 I hereby place these files in the public domain.  They are supplied without 
 any kind of waranty.  Maybe someone who knows more about packaging will be
 able to fork and improve them or show me how it really should be done... 
 (I don't know much about packaging and haven't used the dh_XXX scripts, 
 and there are some remaining lintian errors...).
-
-To use this you'll need to talk to DTN about getting an account, and you'll
-need to download the IQFeed software for Win32 from DTN yourself (for example
-by running 'make fetch').  For more information and for the terms and 
-conditions of that software, see www.iqfeed.net.  I have no affiliation with 
-DTN (other than being a happy customer!)
 
 Thomas Munro <munro@ip9.org>
 on New Year's day, 2011-01-01
