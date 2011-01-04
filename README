@@ -20,6 +20,8 @@ Steps:
 2. make install     # run installer GUI in local dir ready for packaging
 3. make package     # build the .deb
 4. sudo dpkg -i iqfeed-4.7.2.0_amd64.deb # install!
+5. sudo vi /etc/iqfeed.conf
+6. sudo /etc/init.d/iqfeed start
 
 I hereby place these files in the public domain.  They are supplied without 
 any kind of waranty.  Maybe someone who knows more about packaging will be
