@@ -1,5 +1,5 @@
 TARGET=target
-RELEASE=4.7.2.0
+RELEASE=4.8.1.7
 INSTALLER="iqfeed_client_$(shell echo $(RELEASE) | sed 's/\./_/g').exe"
 DEB=iqfeed-$(RELEASE)_amd64.deb
 
@@ -7,8 +7,14 @@ menu:
 	@echo "Because of required manual intervention, there are four steps:"
 	@echo "  make fetch -- fetch $(INSTALLER) from www.iqfeed.net"
 	@echo "  make install -- install into a subdirectory (requires GUI)"
+	@echo "  make dlls -- install the MS DLLs needed to run"
 	@echo "  make launch -- configure login/password (requires GUI)"
 	@echo "  make package -- build a Debian package"
+
+dlls:
+	if [ ! -f winetricks ] ; then wget http://winetricks.org/winetricks && chmod +x winetricks ; fi
+	echo "TODO -- this doesn't work yet, apparently the vcredist_x86.exe which winetricks fetches is signed with an expired certificate, still working on this..."
+	PATH=$$PATH:/usr/lib/wine WINEPREFIX=$(shell pwd)/$(TARGET)/usr/lib/iqfeed/bottle ./winetricks vcrun2010
 
 fetch:
 	wget http://www.iqfeed.net/$(INSTALLER)
