@@ -48,7 +48,7 @@ case "$1" in
         start-stop-daemon --stop --name 'iqconnect.exe' 
         start-stop-daemon --start --name iqconnect.exe \
             --background \
-            --uuid iqfeed \
+            --user iqfeed \
             --chuid iqfeed:nogroup \
             --startas "/usr/lib/iqfeed/run-iqfeed"
         echo "$NAME."
