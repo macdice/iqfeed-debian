@@ -22,11 +22,17 @@ Because manual GUI interaction is required, there are several steps:
 3. make dlls                             # install MFC DLLs from Microsoft
 4. make launch                           # optional: test and configure (GUI)
 5. make package                          # build the .deb
-6. sudo dpkg -i iqfeed-4.7.2.0_amd64.deb # install!
+6. sudo dpkg -i iqfeed-4.8.1.7_amd64.deb # install!
 7. sudo vi /etc/iqfeed.conf              # optional: set product and version
 8. sudo /etc/init.d/iqfeed start
 
-TODO: Step 4 is currently broken.  Working on it...
+TODO: Step 3 is currently broken.  I don't know why.  You'll need to find
+mfc100.dll, msvcp100.dll, msvcr100.dll on a windows machine and copy them
+into drive_c/windows/system32 manually before the 'make launch' phase.
+Those are the Visual C++ 2010 runtime libraries and they can be installed
+from http://www.microsoft.com/download/en/details.aspx?id=5555 which
+for some reason doesn't work for me in Wine (something to do with a trust
+error, possibly relating to signed code).
 
 I hereby place these files in the public domain.  They are supplied without 
 any kind of waranty.  Maybe someone who knows more about packaging will be
@@ -35,3 +41,4 @@ able to fork and improve them or show me how it really should be done...
 and there are some remaining lintian errors...).
 
 Thomas Munro <munro@ip9.org> on New Year's day, 2011-01-01
+Updated on 2012-03-12 for the latest version of the iqfeed client.
