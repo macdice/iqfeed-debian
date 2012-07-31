@@ -15,10 +15,11 @@
 PATH=/sbin:/bin:/usr/sbin:/usr/bin
 NAME=iqfeed
 DESC="DTN IQFeed market data feed"
-LOG=/var/log/iqfeed.log
+LOG1=/var/log/iqfeed.log
+LOG2=/var/log/iqfeed.admin.log
 
-touch $LOG
-chown iqfeed $LOG
+touch $LOG1 $LOG2
+chown iqfeed $LOG1 $LOG2
 
 # Defaults - don't touch, edit /etc/default/iqfeed or /etc/iqfeed.conf
 ENABLED=0

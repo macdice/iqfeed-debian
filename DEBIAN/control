@@ -3,7 +3,7 @@ Version: @RELEASE@
 Section: net
 Priority: optional
 Architecture: amd64
-Depends: adduser, wine, lib32nss-mdns, logrotate
+Depends: adduser, wine, lib32nss-mdns, logrotate, netcat-openbsd
 Maintainer: You
 Description: The DTN IQFeed market data feed connector
  This supplies scripts and files to make iqconnect.exe run nicely on

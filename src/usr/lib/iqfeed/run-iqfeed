@@ -8,9 +8,15 @@ if [ "IQFEED_LOG" == "" ] ; then echo Need IQFEED_LOG ; exit 1 ; fi
 if [ "IQFEED_BOTTLE" == "" ] ; then echo Need IQFEED_BOTTLE ; exit 1 ; fi
 
 export WINEPREFIX=$IQFEED_BOTTLE
-exec /usr/bin/xvfb-run -a /usr/bin/wine \
+/usr/bin/xvfb-run -s -noreset -a /usr/bin/wine \
     'c:\\Program Files\\DTN\\IQFeed\\iqconnect.exe' \
     -version "$IQFEED_VERSION" \
     -product "$IQFEED_PRODUCT" \
     -autoconnect \
-    >> "$IQFEED_LOG"
+    2>&1 \
+    >> "$IQFEED_LOG" &
+
+/bin/sleep 15
+
+exec /bin/nc 127.0.0.1 5009 > /var/log/iqfeed.admin.log
+
