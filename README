@@ -13,7 +13,7 @@ wanted to run it as a headless daemon that comes up whenever my PC comes
 up, so I decided to try packaging it and giving it standard start/stop 
 scripts.
 
-Packages needed: wine, lib32nss-mdns, fakeroot, dpkg, wget, xvfb, make
+Packages needed: wine, libnss-mdns, fakeroot, dpkg, wget, xvfb, make
 
 Because manual GUI interaction is required, there are several steps:
 

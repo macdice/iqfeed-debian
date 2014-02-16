@@ -16,7 +16,7 @@ export WINEPREFIX=$IQFEED_BOTTLE
     2>&1 \
     >> "$IQFEED_LOG" &
 
-/bin/sleep 15
+/bin/sleep 3
 
-exec /bin/nc 127.0.0.1 5009 > /var/log/iqfeed.admin.log
+/bin/echo "S,CONNECT" | /bin/nc -q-1 localhost 9300 > /var/log/iqfeed.admin.log
 

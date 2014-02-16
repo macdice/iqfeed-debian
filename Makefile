@@ -1,5 +1,5 @@
 TARGET=target
-RELEASE=4.8.1.7
+RELEASE=5.1.0.5
 INSTALLER="iqfeed_client_$(shell echo $(RELEASE) | sed 's/\./_/g').exe"
 DEB=iqfeed-$(RELEASE)_amd64.deb
 
